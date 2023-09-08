@@ -1,5 +1,5 @@
-permalink: :path
+
 collections:
-  all:
+  sang-penyampai-pesan:
     output: true
-    permalink: /:collection/:name
+    permalink: /sang-penyampai-pesan/:path
