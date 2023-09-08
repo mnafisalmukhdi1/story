@@ -1,4 +1,4 @@
-
+permalink: :path
 collections:
   all:
     output: true
