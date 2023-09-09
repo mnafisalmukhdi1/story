@@ -17,7 +17,7 @@
 	{% assign folder = page.path | split: "/" | first %}
 	{% for file in site.static_files %}
 	{% if file.path contains folder and file.name != "index.md" %} 
-	<li><a href="{{ file.url }}">{{ file.name }}</a></li>
+	<li><a href="{{ file.url }}">{{ file.title }}</a></li>
 	{% endif %}
 	{% endfor %}
 	</ul>
