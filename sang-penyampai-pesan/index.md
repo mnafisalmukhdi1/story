@@ -8,7 +8,7 @@ desc: Sang Penyampai Pesan adalah trilogi cerpen fiksi penggemar–tidak termasu
 {% assign folder = 'sang-penyampai-pesan' %}
 {% for file in site.static_files %}
 {% if file.path contains folder and file.name != "index.md" %} 
-<li><a href="{{ file.url }}">{{ file.title }}</a></li>
+<li><a href="{{ file.url }}">{{ file.name }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
