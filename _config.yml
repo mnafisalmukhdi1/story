@@ -2,4 +2,5 @@ collections:
     sang-penyampai-pesan:
         output: true
         
-permalink: /:collection/:path
+permalinks:
+  posts: /:categories/:title
