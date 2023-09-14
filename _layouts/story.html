@@ -14,9 +14,11 @@
 	</section>
 	<section>
 	{% for post in site.posts | sort: 'date' %}
+	<ul class="list-none">
   	{% if post.url != '/' and post.url != 'index.md' %}
     	<li><a href="{{ post.url }}">{{ post.title }}</a></li>
   	{% endif %}
+	</ul>
 	{% endfor %}
 	</section>
 </main>
