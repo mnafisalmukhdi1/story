@@ -13,7 +13,7 @@
 	{{page.desc}}
 	</section>
 	<section>
-	{% for post in site.posts %}
+	{% for post in site.posts | sort: 'date' %}
   	{% if post.url != '/' and post.url != 'index.md' %}
     	<li><a href="{{ post.url }}">{{ post.title }}</a></li>
   	{% endif %}
