@@ -1,9 +1,8 @@
-{% for folder in site.categories %}
+{% assign posts = site.posts | where: "path", "_posts/" | sort: "date" %}
 <ul>
-{% for post in folder.posts %}
-{% if post.url != '{{ folder.url }}/index.md' %}
+{% for post in posts reversed %}
+{% if post.path != "_posts/index.md" and post.path != "sang-penyampai-pesan/_posts/index.md" and post.path != "detektif-sekolahan/_posts/index.md" %}
 <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
-{% endfor %}
