@@ -1,0 +1,9 @@
+{% for folder in site.categories %}
+<ul>
+{% for post in folder.posts %}
+{% if post.url != '{{ folder.url }}/index.md' %}
+<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
