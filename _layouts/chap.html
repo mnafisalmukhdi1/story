@@ -3,7 +3,7 @@
 {% include head.html %}
 <body>
 <header class="flex justify-between w-full bg-gray-200 p-4 sticky top-0">
-	<div class="flex"><a href="{{page.prev}}">←</a></div>
+	<div class="flex"><a href="{{page.prev.url}}">←</a></div>
 	<div class="flex text-center">{{page.title}}</div>
 	<div class="flex text-right"><a href="{{page.next.url}}">→</a></div>
 </header>
