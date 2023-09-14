@@ -3,4 +3,4 @@ collections:
         output: true
         
 permalinks:
-  posts: /:categories/:title
+  posts: /:collections/:title
