@@ -1,4 +1,4 @@
-permalink: /:collections/:title
+permalink: /:categories/:title
 
 collections:
     sang-penyampai-pesan:
