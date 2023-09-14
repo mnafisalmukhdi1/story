@@ -3,23 +3,21 @@
 {% include head.html %}
 <body>
 <header class="flex justify-between w-full bg-gray-200 p-4 sticky top-0">
-	{% if page.prev.url %}
-  	<div class="flex"><a href="{{ page.prev.url }}">←</a></div>
-	{% else %}
-  	<div class="flex"><a href="#">←</a></div>
-	{% endif %}
-	{% if page.previous_url %}
-  	<div class="flex"><a href="{{ page.previous_url }}">←</a></div>
-	{% endif %}
+{% for category in site.categories %}
+  {% if page.categories contains category.name %}
+    {% for post in category.posts | sort: 'date' %}
+      {% if post.url != page.url %}
+        {% if post.date < page.date %}
+          <div class="flex"><a href="{{ post.url }}">←</a></div>
+        {% endif %}
 	<div class="flex text-center">{{page.title}}</div>
-	{% if page.next.url %}
-  	<div class="flex"><a href="{{ page.next.url }}">→</a></div>
-	{% else %}
-  	<div class="flex"><a href="#">→</a></div>
-	{% endif %}
-	{% if page.next_url %}
-  	<div class="flex"><a href="{{ page.next_url }}">→</a></div>
-	{% endif %}
+        {% if post.date > page.date %}
+          <div class="flex"><a href="{{ post.url }}">→</a></div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 </header>
 <main class="p-4 justify-center space-y-4">
 	{{content}}
