@@ -13,7 +13,7 @@
 	{{page.desc}}
 	</section>
 	<section>
-	{{content}}
+	{% include 'chapters.html' with dir=page.dir %}
 	</section>
 </main>
 </body>
