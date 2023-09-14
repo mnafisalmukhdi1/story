@@ -1,7 +1,0 @@
-<ul>
-{% for file in site.pages %}
-{% if file.dir == page.dir and file.title != "index.md" %}
-<li><a href="{{ file.url }}">{{ file.title }}</a></li>
-{% endif %}
-{% endfor %}
-</ul>
