@@ -12,7 +12,7 @@
 	<section class="justify-center p-4">
 	{{page.desc}}
 	</section>
-	<section>
+	<section class="p-4">
 	{% for post in site.posts | sort: 'date' %}
 	<ul class="list-none">
   	{% if post.url != '/' and post.url != 'index.md' %}
