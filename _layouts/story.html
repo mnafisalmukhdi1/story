@@ -14,10 +14,10 @@
 	</section>
 	<section class="px-4">
 	{% assign sorted_posts = site.posts | sort: 'date' %}
-    	{% for post in sorted_posts %}
+    {% for post in sorted_posts %}
 	<ul class="list-none divide-y divide-gray-200">
   	{% if post.url != '/' and post.url != 'index.md' %}
-    	<li class="py-1 {{ forloop.index | modulo: 2 == 0 ? 'bg-gray-200' : 'bg-gray-100' }}"><a href="{{ post.url }}">{{ post.title }}</a></li>
+    <li class="py-1"><a href="{{ post.url }}">{{ post.title }}</a></li>
   	{% endif %}
 	</ul>
 	{% endfor %}
