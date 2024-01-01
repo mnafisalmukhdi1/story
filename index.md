@@ -26,7 +26,7 @@
 <div class="max-w-lg shrink-0 snap-center">
 <a href="https://story.nafis1.my.id/pria-bertopeng-dari-surga/">
 <img class="aspect-[9/14] w-40 shrink-0 rounded-lg bg-white object-cover shadow-xl" src="https://mnafisalmukhdi1.github.io/cdn/works/pbds.jpg" alt="Pria Bertopeng dari Surga">
-<div class="block truncate w-40">Sang Penyampai Pesan</div>
+<div class="block truncate w-40">Pria Bertopeng dari Surga</div>
 </a>
 </div>
 
