@@ -22,7 +22,7 @@ title: Index
 <!--Lembayung Senja-->
 <div class="max-w-lg shrink-0 snap-center">
 <a href="https://story.nafis1.my.id/lembayung-senja/">
-<img class="aspect-[9/14] w-40 shrink-0 rounded-lg bg-white object-cover shadow-xl" src="https://mnafisalmukhdi1.github.io/cdn/works/spp-new.png" alt="Lembayung Senja">
+<img class="aspect-[9/14] w-40 shrink-0 rounded-lg bg-white object-cover shadow-xl" src="https://mnafisalmukhdi1.github.io/cdn/works/ls.jpg" alt="Lembayung Senja">
 <div class="block truncate w-40">Lembayung Senja</div>
 </a>
 </div>
