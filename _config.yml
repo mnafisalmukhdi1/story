@@ -1,9 +1,11 @@
 permalink: /:categories/:title
 
 collections:
-    sang-penyampai-pesan:
-        output: true
-
+  sang-penyampai-pesan:
+    output: true
+  pria-bertopeng-dari-surga:
+    output: true
+ 
 defaults:
   -
     scope:
