@@ -1,9 +1,0 @@
-{% assign posts = site.posts | where: "path", "_posts/" | sort: "date" %}
-<ul>
-{% for post in posts reversed %}
-{% if post.path contains "_posts/index.md" %}
-{% continue %}
-{% endif %}
-<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
