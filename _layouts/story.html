@@ -13,8 +13,7 @@
 	{{page.desc}}
 	</section>
 	<section class="px-4">
-	{% assign sorted_posts = site.posts | sort: 'date' %}
-    {% for post in sorted_posts %}
+	{% for post in site[page.collection] %}
 	<ul class="list-none divide-y divide-gray-200">
   	{% if post.url != '/' and post.url != 'index.md' %}
     <li class="py-1"><a href="{{ post.url }}" class="underline">{{ post.title }}</a></li>
