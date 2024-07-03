@@ -1,0 +1,28 @@
+---
+layout: main
+---
+{% assign current_book = site.data.books | where: "url", page.url | first %}
+{% if current_book %}
+<section class="flex justify-center p-4">
+<div class="snap-center items-center">
+  <img class="aspect-[9/14] w-40 shrink-0 rounded-lg bg-white object-cover shadow-xl" src="{{ current_book.cover }}" alt="Sampul {{ page.title }}"/>
+  <h1 class="block text-xl dark:text-white">{{ page.title }}</h1>
+</div>
+</section>
+<main>
+  <section class="justify-center px-4 my-2 dark:text-white">
+  {{ page.description | markdownify}}
+  </section>
+  <section class="px-4">
+    <ul class="list-none divide-y divide-gray-200 dark:divide-slate-800">
+      {% for chapter in current_book.chapters %}
+      <li class="py-1"><a href="{{ chapter.url }}" class="dark:text-white">{{ chapter.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No chapters found for this book. Debug info:</p>
+      <p>Page URL: {{ page.url }}</p>
+      <p>Book URL: {{ current_book.url }}</p>
+    {% endif %}
+  </section>
+</main>
