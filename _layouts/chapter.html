@@ -29,44 +29,11 @@ layout: default
 <main id="top" class="chapter-content p-4 justify-center space-y-4 dark:text-white">
 {{ content }}
 </main>
-<footer class="flex sticky bottom-0">
+<footer class="flex sticky bottom-0 w-full bg-gray-200 p-4 dark:bg-slate-800">
     <div class="flex flex-col align-center">
-      <i id="chapter1-heart" class="material-icons" onclick="toggleLike('chapter1')">favorite_border</i><br>
-      <span id="chapter1-likes">0</span>
+      <!-- LikeBtn.com BEGIN -->
+      <span class="likebtn-wrapper" data-lang="id" data-identifier="item_1"></span>
+      <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+      <!-- LikeBtn.com END -->
     </div>
 </footer>
-<script>
-  // Initialize Firestore
-  var db = firebase.firestore();
-  // Add Votes
-  function addLike(chapterId) {
-    var chapterRef = db.collection("likes").doc(chapterId);
-
-    return db.runTransaction(function(transaction) {
-      return transaction.get(chapterRef).then(function(doc) {
-        if (!doc.exists) {
-          transaction.set(chapterRef, { count: 1 });
-        } else {
-          var newCount = doc.data().count + 1;
-          transaction.update(chapterRef, { count: newCount });
-        }
-      });
-    }).then(function() {
-      console.log("Like successfully added!");
-    }).catch(function(error) {
-      console.error("Error adding like: ", error);
-    });
-  }
-  // Show Votes
-  function displayLikes(chapterId) {
-    var chapterRef = db.collection("likes").doc(chapterId);
-
-    chapterRef.onSnapshot(function(doc) {
-      if (doc.exists) {
-        document.getElementById(chapterId + "-likes").innerText = doc.data().count;
-      } else {
-        document.getElementById(chapterId + "-likes").innerText = 0;
-      }
-    });
-  }
-</script>
