@@ -4,7 +4,7 @@ book_url: "/86-the-drama/"
 book_title: "86: The Drama"
 title: "VOLUME 0"
 previous: "index.html"
-next: "00.html"
+next: "01-01.html"
 ---
 Deskripsi:
 
