@@ -28,6 +28,21 @@ layout: default
 </header>
 <main id="top" class="chapter-content p-4 justify-center space-y-4 dark:text-white">
 {{ content }}
+<div id="disqus_thread"></div>
+</div>
+<script>
+    var disqus_config = function () {
+    this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mnafisam.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </main>
 <footer>
   <a href="#top" class="fixed bottom-16 right-4 bg-gray-200 p-3.5 rounded-lg shadow-lg dark:bg-slate-800 dark:text-white opacity-50 hover:opacity-100"><span class="text-sm material-icons">arrow_upward</span></span></a>
