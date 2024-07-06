@@ -3,7 +3,7 @@ layout: default
 ---
 <header class="flex justify-between w-full bg-gray-200 p-4 sticky top-0 dark:bg-slate-800">
     {% if page.previous %}
-    <div class="flex items-center"><a href="{{page.previous}}" class="text-xl dark:text-white">←</a></div>
+    <div class="flex items-center"><a href="{{page.previous}}" class="text-xl dark:text-white"><span class="material-icons">arrow_back</span></a></div>
     {% endif %}
     <div class="flex flex-col items-center">
         <h1 class="block text-center text-xl">
@@ -23,12 +23,13 @@ layout: default
         </h2>
     </div>
     {% if page.next %}
-    <div class="flex text-right items-center"><a href="{{page.next}}" class="text-xl dark:text-white">→</a></div>
+    <div class="flex text-right items-center"><a href="{{page.next}}" class="text-xl dark:text-white"><span class="material-icons">arrow_forward</span></a></div>
     {% endif %}
 </header>
 <main id="top" class="chapter-content p-4 justify-center space-y-4 dark:text-white">
 {{ content }}
 </main>
 <footer>
-  <a href="#top" class="fixed bottom-4 right-4 bg-gray-200 p-4 rounded-full shadow-lg dark:bg-slate-800 dark:text-white">↑</a>
+  <a href="#top" class="fixed bottom-16 right-4 bg-gray-200 p-3.5 rounded-lg shadow-lg dark:bg-slate-800 dark:text-white opacity-50 hover:opacity-100"><span class="text-sm material-icons">arrow_upward</span></span></a>
+  <a href="https://trakteer.id/mnafisalmukhdi1/tip" target="_blank" class="fixed bottom-4 right-4 opacity-50 hover:opacity-100"><img src="https://trakteer-assets.sgp1.digitaloceanspaces.com/images/mix/trakteer-icon.png" class="w-10 h-10"></a>
 </footer>
