@@ -2,7 +2,7 @@
 layout: chapter
 book_url: "/the-last-codes/"
 book_title: "The Last Codes"
-title: "Dekat dengan Rumah"
+title: "Dekat Dengan Rumah"
 previous: "no-life.html"
 next: "#"
 ---
