@@ -28,15 +28,8 @@ comments: true
     {% endif %}
 </header>
 <main id="top" class="chapter-content p-4 justify-center space-y-4 dark:text-white">
-  <div x-show="!showComments">
     {{ content }}
-  </div>
-  <div x-show="showComments">
     <div id="disqus_thread"></div>
-    <button @click="showComments = false" class="fixed top-4 right-4 bg-red-600 p-3.5 rounded-lg shadow-lg dark:bg-red-800 dark:text-white">
-      <span class="text-sm material-icons">close</span>
-    </button>
-  </div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
