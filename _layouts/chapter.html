@@ -11,7 +11,7 @@ comments: true
             <a href="index.html" class="font-bold underline dark:text-white">{{page.book_title}}</a>
         </h1>
         <h2 class="block text-center">
-          <select id="chapterSelect" class="text-center bg-gray-200 dark:bg-slate-800 dark:text-white w-full sm:w-screen-sm" onchange="navigateToLink()">
+          <select title="Pilih bab" id="chapterSelect" class="text-center bg-gray-200 dark:bg-slate-800 dark:text-white w-full sm:w-screen-sm" onchange="navigateToLink()">
             {% assign current_book = site.data.books | where: "url", page.book_url | first %}
             <option value="{{current_book.url}}index.html" class="text-base dark:text-white">{{current_book.title}}</option>
             {% for chapter in current_book.chapters %}
@@ -58,5 +58,5 @@ comments: true
 </main>
 <footer>
   <a href="#top" class="fixed bottom-16 right-4 bg-gray-200 p-3.5 rounded-lg shadow-lg dark:bg-slate-800 dark:text-white opacity-50 hover:opacity-100"><span class="text-sm material-icons">arrow_upward</span></span></a>
-  <a href="https://trakteer.id/mnafisalmukhdi1/tip" target="_blank" class="fixed bottom-4 right-4 opacity-50 hover:opacity-100"><img src="https://trakteer-assets.sgp1.digitaloceanspaces.com/images/mix/trakteer-icon.png" class="w-10 h-10"></a>
+  <a href="https://trakteer.id/mnafisalmukhdi1/tip" target="_blank" class="fixed bottom-4 right-4 opacity-50 hover:opacity-100"><img src="https://trakteer-assets.sgp1.digitaloceanspaces.com/images/mix/trakteer-icon.png" alt="Trakteer" class="w-10 h-10"></a>
 </footer>
