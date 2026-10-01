@@ -18,12 +18,18 @@ body {
     -webkit-user-select:none;
 }
 
+/* Jaga ritme baca: line-height longgar + spasi antar paragraf yang jelas */
 .chapter-content p {
     line-height: 1.8;
+    margin-bottom: 0;
 }
 
-.chapter-content p + p {
-    margin-top: 1.25rem;
+.chapter-content p + p,
+.chapter-content > * + p,
+.chapter-content p + *,
+.chapter-content blockquote + p,
+.chapter-content p + blockquote {
+    margin-top: 1.75rem;
 }
 
 /* Scrollbar tipis & minimalis */
