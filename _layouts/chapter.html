@@ -2,43 +2,47 @@
 layout: default
 comments: true
 ---
-<header x-show="!open" class="flex justify-between w-full bg-gray-200 p-4 sticky top-0 dark:bg-slate-800">
+<header x-show="!open" class="sticky top-0 z-10 border-b border-gray-100 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90">
+  <div class="mx-auto flex h-14 max-w-3xl items-center justify-between gap-4 px-4">
     {% if page.previous %}
-    <div class="flex items-center"><a href="{{page.previous}}" class="text-xl dark:text-white"><span class="material-icons">arrow_back</span></a></div>
+    <a href="{{page.previous}}" aria-label="Bab sebelumnya" class="flex shrink-0 items-center text-gray-500 transition-opacity hover:opacity-60 dark:text-slate-400"><span class="material-icons text-xl">arrow_back</span></a>
+    {% else %}
+    <span class="w-10 shrink-0"></span>
     {% endif %}
-    <div class="flex flex-col items-center">
-        <h1 class="block text-center text-xl">
-            <a href="index.html" class="font-bold underline dark:text-white">{{page.book_title}}</a>
-        </h1>
-        <h2 class="block text-center">
-          <select title="Pilih bab" id="chapterSelect" class="text-center bg-gray-200 dark:bg-slate-800 dark:text-white w-full sm:w-screen-sm" onchange="navigateToLink()">
-            {% assign current_book = site.data.books | where: "url", page.book_url | first %}
-            <option value="{{current_book.url}}index.html" class="text-base dark:text-white">{{current_book.title}}</option>
-            {% for chapter in current_book.chapters %}
-            {% assign chapter_url = current_book.url | append: chapter.url %}
-              <option value="{{ chapter.url }}" class="text-base dark:text-white" {% if page.url == chapter_url %}selected{% endif %}>
-                {{ chapter.title }}
-              </option>
-            {% endfor %}
-          </select>      
-        </h2>
+    <div class="flex min-w-0 flex-col items-center">
+      <h1 class="block max-w-full truncate text-center text-sm font-medium dark:text-white">
+        <a href="index.html" class="transition-opacity hover:opacity-70">{{page.book_title}}</a>
+      </h1>
+      <select title="Pilih bab" id="chapterSelect" onchange="navigateToLink()" class="mt-0.5 w-full max-w-xs cursor-pointer appearance-none border-none bg-transparent text-center text-xs text-gray-500 focus:outline-none dark:bg-transparent dark:text-slate-400">
+        {% assign current_book = site.data.books | where: "url", page.book_url | first %}
+        <option value="{{current_book.url}}index.html" class="text-base dark:text-white">{{current_book.title}}</option>
+        {% for chapter in current_book.chapters %}
+        {% assign chapter_url = current_book.url | append: chapter.url %}
+          <option value="{{ chapter.url }}" class="text-base dark:text-white" {% if page.url == chapter_url %}selected{% endif %}>
+            {{ chapter.title }}
+          </option>
+          {% endfor %}
+      </select>
     </div>
     {% if page.next %}
-    <div class="flex text-right items-center"><a href="{{page.next}}" class="text-xl dark:text-white"><span class="material-icons">arrow_forward</span></a></div>
+    <a href="{{page.next}}" aria-label="Bab berikutnya" class="flex shrink-0 items-center text-gray-500 transition-opacity hover:opacity-60 dark:text-slate-400"><span class="material-icons text-xl">arrow_forward</span></a>
+    {% else %}
+    <span class="w-10 shrink-0"></span>
     {% endif %}
+  </div>
 </header>
 <main id="top">
-<article x-show="!open" class="chapter-content p-4 space-y-4 dark:text-white">
+<article x-show="!open" class="chapter-content mx-auto max-w-2xl px-5 py-10 leading-relaxed text-gray-800 dark:text-slate-200">
     {{ content }}
 </article>
 <section x-show="open">
-    <div class="flex w-full bg-gray-200 p-4 sticky top-0 dark:bg-slate-800 dark:text-white gap-2">
-      <div class="flex flex-col">
-        <button @click="open = false"><span class="text-sm material-icons">arrow_back_ios</span></button>
-      </div>
-      <div class="flex flex-col">Komentar</div>
+    <div class="sticky top-0 flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+      <button @click="open = false" aria-label="Tutup komentar" class="text-gray-500 transition-opacity hover:opacity-60 dark:text-slate-400"><span class="material-icons text-lg">arrow_back_ios</span></button>
+      <span class="text-sm font-medium dark:text-white">Komentar</span>
     </div>
-    <div id="disqus_thread"></div>
+    <div class="mx-auto max-w-2xl px-4 py-6">
+      <div id="disqus_thread"></div>
+    </div>
 </section>
 </main>
 <script>
@@ -57,15 +61,10 @@ comments: true
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</main>
-<footer x-show="!open" class="flex justify-between w-full bg-gray-200 p-2 sticky bottom-0 dark:bg-slate-800">
-  <div class="flex flex-col items-center">
-    <button @click="open = true" class="bg-gray-300 dark:bg-slate-900 p-1.5 rounded-lg shadow-lg dark:text-white hover:opacity-50"><span class="text-sm material-icons">comment</span></button>
-  </div>
-  <div class="flex flex-col items-center">
-    <a href="https://trakteer.id/mnafisalmukhdi1/tip" target="_blank" class="hover:opacity-50"><img src="https://trakteer-assets.sgp1.digitaloceanspaces.com/images/mix/trakteer-icon.png" alt="Trakteer" class="w-10 h-10 items-center"></a>
-  </div>
-  <div class="flex flex-col items-center">
-    <a href="#top" class="bg-gray-300 p-1.5 rounded-lg shadow-lg dark:bg-slate-900 dark:text-white hover:opacity-50"><span class="text-sm material-icons">arrow_upward</span></a>
+<footer x-show="!open" class="fixed bottom-0 right-0 z-10 p-4">
+  <div class="flex items-center gap-2">
+    <a href="https://trakteer.id/mnafisalmukhdi1/tip" target="_blank" aria-label="Trakteer" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-100 bg-white shadow-sm transition-opacity hover:opacity-70 dark:border-slate-800 dark:bg-slate-800"><img src="https://trakteer-assets.sgp1.digitaloceanspaces.com/images/mix/trakteer-icon.png" alt="Trakteer" class="h-5 w-5 object-contain"></a>
+    <button @click="open = true" aria-label="Buka komentar" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-100 bg-white text-gray-600 shadow-sm transition-colors hover:bg-gray-50 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"><span class="material-icons text-lg">comment</span></button>
+    <a href="#top" aria-label="Kembali ke atas" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-100 bg-white text-gray-600 shadow-sm transition-colors hover:bg-gray-50 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"><span class="material-icons text-lg">arrow_upward</span></a>
   </div>
 </footer>
